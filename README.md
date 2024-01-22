@@ -1,24 +1,10 @@
-# README
+Project started with 
+`rails new zssn --api --skip-keeps --skip-spring --skip-bootsnap --skip-test --database=postgresql`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+$> sudo -u postgres psql
 
-Things you may want to cover:
+=# create user zssn with password 'zssn123';  
 
-* Ruby version
+=# alter role zssn superuser createrole createdb replication; 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+=# create database projectname owner zssn;
