@@ -8,3 +8,5 @@ $> sudo -u postgres psql
 =# alter role zssn superuser createrole createdb replication; 
 
 =# create database projectname owner zssn;
+
+For the sake of simplicity, the api is not versioned (since this is the end of the world, there will be no version 2)
