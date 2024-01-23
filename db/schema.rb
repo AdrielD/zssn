@@ -34,8 +34,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_001238) do
     t.string "name", null: false
     t.integer "age", null: false
     t.string "gender", default: "other", null: false
-    t.decimal "lat", precision: 8, scale: 6, default: "0.0", null: false
-    t.decimal "lng", precision: 9, scale: 6, default: "0.0", null: false
+    t.decimal "lat", precision: 8, scale: 6, null: false
+    t.decimal "lng", precision: 9, scale: 6, null: false
+    t.integer "infection_report_count", default: 0, null: false
     t.boolean "infected", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
