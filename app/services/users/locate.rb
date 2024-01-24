@@ -1,4 +1,4 @@
-class Users::UpdateLocation
+class Users::Locate
   def initialize(params)
     @id = params['id']
     @lat = params['lat']

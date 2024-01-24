@@ -5,19 +5,23 @@ class Api::UsersController < ApiController
   end
 
   def locate
-    user = Users::UpdateLocation.new(location_params).perform
+    user = Users::Locate.new(location_params).perform
     render json: user, status: :ok
   end
 
   def give
+    result = Users::Give.new(item_params).perform
     render json: {}, status: :ok
   end
 
   def take
+    result = Users::Take.new(item_params).perform
     render json: {}, status: :ok
   end
 
   def trade
+    offer_a, offer_b = trade_params[:offers]
+    result = User::Trade.new(offer_a, offer_b).perform
     render json: {}, status: :ok
   end
 
@@ -33,5 +37,9 @@ class Api::UsersController < ApiController
 
   def item_params
     params.permit(:id, :item_id, :quantity)
+  end
+
+  def trade_params
+    params:permit(offers: [:user_id, item_list: [:id, quantity]])
   end
 end
