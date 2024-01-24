@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     post '/user' => 'users#create'
-    put '/user/:id/location' => 'users#update_location'
+    put '/user/:id/location' => 'users#locate'
     post '/user/:id/give' => 'users#give'
     post '/user/:id/take' => 'users#take'
 

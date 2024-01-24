@@ -4,7 +4,7 @@ class Api::UsersController < ApiController
     render json: user, status: :created
   end
 
-  def update_location
+  def locate
     user = Users::UpdateLocation.new(location_params).perform
     render json: user, status: :ok
   end
