@@ -4,12 +4,12 @@ class TradeManager
                 :point_cache
 
   def initialize(offer_a, offer_b)
-    @user_a = User.find(offer_a['user_id'])
+    @user_a = User.find(offer_a[:user_id])
 
-    @item_list_a = offer_a['item_list']
+    @item_list_a = offer_a[:item_list]
 
-    @user_b = User.find(offer_b['user_id'])
-    @item_list_b = offer_b['item_list']
+    @user_b = User.find(offer_b[:user_id])
+    @item_list_b = offer_b[:item_list]
 
     @point_cache = {}
 
@@ -22,16 +22,15 @@ class TradeManager
 
   def close_deal
     return unless is_fair_trade?
-
     ActiveRecord::Base.transaction do
       item_list_a.each do |item|
-        user_a.forfeit_item(item['id'], item['quantity'])
-        user_b.receive_item(item['id'], item['quantity'])
+        user_a.forfeit_item(item[:id], item[:quantity])
+        user_b.receive_item(item[:id], item[:quantity])
       end
 
       item_list_b.each do |item|
-        user_a.receive_item(item['id'], item['quantity'])
-        user_b.forfeit_item(item['id'], item['quantity'])
+        user_a.receive_item(item[:id], item[:quantity])
+        user_b.forfeit_item(item[:id], item[:quantity])
       end
     end
   end
@@ -55,14 +54,14 @@ class TradeManager
 
   def sum_points(list)
     list.reduce(0) do |acc, unit|
-      if (point_cache[unit['id']])
-        points = point_cache[unit['id']]
+      if (point_cache[unit[:id]])
+        points = point_cache[unit[:id]]
       else
-        item = Item.find(unit['id'])
+        item = Item.find(unit[:id])
         points = item.points
-        point_cache[unit['id']] = points
+        point_cache[unit[:id]] = points
       end
-      acc + points * unit['quantity']
+      acc + points * unit[:quantity]
     end
   end
 end

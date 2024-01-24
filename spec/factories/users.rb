@@ -9,5 +9,23 @@ FactoryBot.define do
     trait :infected do
       infected { true }
     end
+
+    trait :with_item_x1 do
+      after(:create) do |user|
+        create(:user_item, user_id: user.id)
+      end
+    end
+
+    trait :with_item_x5 do
+      after(:create) do |user|
+        create(:user_item, :x5, user_id: user.id)
+      end
+    end
+
+    trait :with_item_x10 do
+      after(:create) do |user|
+        create(:user_item, :x10, user_id: user.id)
+      end
+    end
   end
 end
