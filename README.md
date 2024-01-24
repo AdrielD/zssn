@@ -22,8 +22,8 @@ TODO:
   - validate user, items, availability
   - normalize in case users are trying to trade the same items
   - refactor item comparison and exchange
-- add tests
-- add reports
+- add tests (trade, ad more cases for others)
+- fix reports (percentages of infected and not infected)
 - add model or service validations
 - describe project architecture on readme
 - dockerfile, docker-compose (web, db,redis)
