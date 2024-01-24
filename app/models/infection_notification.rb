@@ -1,3 +1,1 @@
-class InfectionNotification < ApplicationRecord
-
-end
+class InfectionNotification < ApplicationRecord; end

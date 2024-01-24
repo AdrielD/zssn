@@ -1,8 +1,8 @@
 class Users::Take
   def initialize(params)
-    @id = params['id']
-    @item_id = params['item_id']
-    @quantity = params['quantity']
+    @id = params['id'].to_i
+    @item_id = params['item_id'].to_i
+    @quantity = params['quantity'].to_i
   end
 
   def perform

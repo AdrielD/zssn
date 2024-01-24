@@ -1,8 +1,8 @@
 items_seed = [
-  { name: 'Water', slug: :water, points: 4 },
-  { name: 'Food', slug: :food, points: 3 },
-  { name: 'Meds', slug: :meds, points: 2 },
-  { name: 'Ammo', slug: :ammo, points: 1 }
+  { name: 'Water', points: 4 },
+  { name: 'Food', points: 3 },
+  { name: 'Meds', points: 2 },
+  { name: 'Ammo', points: 1 }
 ]
 
 items_seed.each do |seed|

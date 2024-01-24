@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_002923) do
   create_table "user_items", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "item_id", null: false
-    t.integer "amount", default: 0, null: false
+    t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

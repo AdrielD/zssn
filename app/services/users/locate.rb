@@ -1,8 +1,8 @@
 class Users::Locate
   def initialize(params)
-    @id = params['id']
-    @lat = params['lat']
-    @lng = params['lng']
+    @id = params['id'].to_i
+    @lat = params['lat'].to_d
+    @lng = params['lng'].to_d
   end
 
   def perform
