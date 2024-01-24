@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_23_001238) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_24_002923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "infection_notifications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "notifier_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
@@ -36,12 +43,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_001238) do
     t.string "gender", default: "other", null: false
     t.decimal "lat", precision: 8, scale: 6, null: false
     t.decimal "lng", precision: 9, scale: 6, null: false
-    t.integer "infection_report_count", default: 0, null: false
     t.boolean "infected", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "infection_notifications", "users"
+  add_foreign_key "infection_notifications", "users", column: "notifier_id"
   add_foreign_key "user_items", "items"
   add_foreign_key "user_items", "users"
 end

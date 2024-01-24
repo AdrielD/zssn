@@ -13,8 +13,6 @@ class TradeManager
 
     @point_cache = {}
 
-    # InfectedCantTrade
-
     validate
   end
 
@@ -40,12 +38,19 @@ class TradeManager
 
   private
 
+  # TODO let trade happen in a multi-staged transaction (add, remove itens, compare, etc, before closing the deal)
+
+  # TODO add it's own controller
+
+  # TODO have temporary persistency with redis
+
   def validate
-    # validate user, items, availability 
+    # TODO validate user, items, availability
+    raise UserExceptions::InfectedCantTrade if (user_a.infected || user_b.infected)
   end
 
   def normalize
-    # in case users are trying to trade the same items
+    # TODO in case users are trying to trade the same items
   end
 
   def sum_points(list)

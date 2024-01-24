@@ -9,12 +9,6 @@ class Api::UsersController < ApiController
     render json: user, status: :ok
   end
 
-  # todo: implement report system so reporting is only valid from different users
-  def report_infected
-    user = Users::ReportInfected.new(params[:id]).perform
-    render json: user, status: :ok
-  end
-
   def give
     render json: {}, status: :ok
   end

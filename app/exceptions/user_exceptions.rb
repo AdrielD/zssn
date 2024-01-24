@@ -28,4 +28,16 @@ module UserExceptions
       "Infected users can't trade"
     end
   end
+
+  class InfectedCantNotify < StandardError
+    def message
+      "Infected users can't notify other users"
+    end
+  end
+
+  class DuplicatedInfectionNotification < StandardError
+    def message
+      "This user's infection was already notified by this agent"
+    end
+  end
 end

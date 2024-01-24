@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     put '/user/:id/location' => 'users#update_location'
     post '/user/:id/give' => 'users#give'
     post '/user/:id/take' => 'users#take'
+
+    post '/infection_notification/user' => 'infection_notifications#notify'
+
     post '/users/trade' => 'user#trade'
   end
 end
