@@ -12,6 +12,10 @@ class User < ApplicationRecord
     user_items unless self.infected
   end
 
+  def increase_report_count
+    self.update(infection_report_count: infection_report_count + 1)
+  end
+
   def receive_item(item_id, quantity)
     raise UserExceptions::InfectedCantTrade if self.infected
 
