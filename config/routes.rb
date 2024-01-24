@@ -10,5 +10,12 @@ Rails.application.routes.draw do
     post '/infection_notification/user' => 'infection_notifications#notify'
 
     post '/users/trade' => 'user#trade'
+
+    namespace :reports do
+      get '/infected_users', => 'reports#infected_users'
+      get '/healthy_users', => 'reports#healthy_users'
+      get '/average_item_per_user', => 'reports#average_item_per_user'
+      get '/points_lost_on_infection', => 'reports#points_lost_on_infection'
+    end
   end
 end
