@@ -6,9 +6,9 @@ RSpec.context 'Services' do
     let(:params) {{ id: user.id, lat: 45.00, lng: 127.00 }}
 
     it 'updates User lat and lng' do
-      expect{ described_class.new(params).perform && user.reload }
-        .to change{ user.lat }.from(user.lat).to(params[:lat].to_d)
-        .and change{ user.lng }.from(user.lng).to(params[:lng].to_d)
+      expect{ described_class.new(params).perform }
+        .to change{ user.reload.lat }.from(user.lat).to(params[:lat].to_d)
+        .and change{ user.reload.lng }.from(user.lng).to(params[:lng].to_d)
     end
 
     context 'raises error on' do

@@ -10,7 +10,7 @@ RSpec.context 'Services' do
       UserItem.create(user_id: user.id, item_id: item.id, amount: 1)
 
       expect{ described_class.new(params).perform }
-        .to change{ user.reload && user.inventory.size }.by(-1)
+        .to change{ user.reload.inventory.size }.by(-1)
     end
 
     context 'for infected user' do
@@ -21,7 +21,7 @@ RSpec.context 'Services' do
 
         expect{ described_class.new(params).perform }
           .to raise_error(UserExceptions::InfectedCantTrade)
-          .and not_change { user.reload && user.user_items.size }
+          .and not_change { user.reload.user_items.size }
       end
     end
   end
