@@ -1,16 +1,4 @@
 module UserExceptions
-  class ItemToInfected < StandardError
-    def message
-      "An infected person can't receive items"
-    end
-  end
-
-  class ItemFromInfected < StandardError
-    def message
-      "An infected person can't give items"
-    end
-  end
-
   class ItemUnavailable < StandardError
     def message
       "Requested item is not present in this user's inventory"

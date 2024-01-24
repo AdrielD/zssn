@@ -5,5 +5,9 @@ FactoryBot.define do
     gender { User::BIOLOGICAL_SEX.sample }
     lat { Faker::Number.between(from:-90.0, to: 90.0) }
     lng { Faker::Number.between(from: -180.0, to: 180.0) }
+
+    trait :infected do
+      infected { true }
+    end
   end
 end
