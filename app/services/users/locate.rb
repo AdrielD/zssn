@@ -8,5 +8,7 @@ class Users::Locate
   def perform
     user = User.find(@id)
     user.update(lat: @lat, lng: @lng)
+    raise StandardError.new(user.errors) if user.errors.any?
+    user
   end
 end

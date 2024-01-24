@@ -8,12 +8,15 @@ class Users::Create
   end
 
   def perform
-    User.create(
+    user = User.create(
       name: @name,
       age: @age,
       gender: @gender,
       lat: @lat,
       lng: @lng
     )
+
+    raise StandardError.new(user.errors) if user.errors.any?
+    user
   end
 end

@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   has_many :user_items
 
-  GENDERS = %w(male female other)
+  BIOLOGICAL_SEX = %w(male female other)
 
   validates :name, presence: true
   validates :age, numericality: { only_integer: true, greater_than: 0 }
-  validates :gender, inclusion: { in: GENDERS }
+  validates :gender, inclusion: { in: BIOLOGICAL_SEX }
   validates :lat, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
   validates :lat, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 190 }
 
@@ -26,6 +26,7 @@ class User < ApplicationRecord
     elsif
       user_item.update(amount: user_item.amount + quantity)
     end
+    user_item
   end
 
   def forfeit_item(item_id, quantity)
@@ -38,5 +39,6 @@ class User < ApplicationRecord
     raise UserExceptions::NotEnoughItems if new_amount < 0
 
     user_item.update(amount: new_amount)
+    user_item
   end
 end

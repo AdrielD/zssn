@@ -14,6 +14,7 @@ For the sake of simplicity, the api is not versioned (since this is the end of t
 TODO:
 - parametize exceptions
 - add i18n to exceptions
+- use google geolocal api to search for lat / lng from an address
 - Trade Manager:
   - let trade happen in a multi-staged transaction (add, remove itens, compare, etc, before closing the deal)
   - add it's own controller

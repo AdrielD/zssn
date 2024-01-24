@@ -10,13 +10,13 @@ class Api::UsersController < ApiController
   end
 
   def give
-    result = Users::Give.new(item_params).perform
-    render json: {}, status: :ok
+    user_item = Users::Give.new(item_params).perform
+    render json: user_item, status: :ok
   end
 
   def take
-    result = Users::Take.new(item_params).perform
-    render json: {}, status: :ok
+    user_item = Users::Take.new(item_params).perform
+    render json: user_item, status: :ok
   end
 
   def trade
