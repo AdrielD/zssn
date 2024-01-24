@@ -1,7 +1,7 @@
 class Users::Trade
   def initialize(params)
-    @offer_a = params['offer_a']
-    @offer_b = params['offer_b']
+    @offer_a = params[:offer_a]
+    @offer_b = params[:offer_b]
   end
 
   def perform

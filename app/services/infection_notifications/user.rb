@@ -2,8 +2,8 @@ class InfectionNotifications::User
   USER_INFECTION_TRESHOLD = 3
 
   def initialize(params)
-    @user_id = params['user_id'].to_i
-    @notifier_id = params['notifier_id'].to_i
+    @user_id = params[:user_id].to_i
+    @notifier_id = params[:notifier_id].to_i
   end
 
   def perform

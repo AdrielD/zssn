@@ -1,5 +1,5 @@
 class ApiController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
   rescue_from StandardError, with: :generic_api_exception
 
   def health_check
