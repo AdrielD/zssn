@@ -8,5 +8,6 @@ class Users::Take
   def perform
     user = User.find(@id)
     user.forfeit_item(@item_id, @quantity)
+    user.inventory
   end
 end

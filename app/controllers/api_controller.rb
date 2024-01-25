@@ -9,7 +9,7 @@ class ApiController < ApplicationController
   private
 
   def generic_api_exception(e, status = :unprocessable_entity)
-    render json { error: e.class, message: e.message }, status: status
+    render json: { error: e.class, message: e.message }, status: status
   end
 
   def record_not_found(e)

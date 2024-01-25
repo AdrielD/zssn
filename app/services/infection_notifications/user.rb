@@ -18,8 +18,10 @@ class InfectionNotifications::User
     InfectionNotification.create(user_id: @user_id, notifier_id: @notifier_id)
     infection_count = InfectionNotification.where(user_id: @user_id).count
 
-    if (infection_count > USER_INFECTION_TRESHOLD)
+    if (infection_count >= USER_INFECTION_TRESHOLD)
       user.update(infected: true)
     end
+
+    user
   end
 end

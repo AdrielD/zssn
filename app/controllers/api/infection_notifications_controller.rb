@@ -1,7 +1,7 @@
 class Api::InfectionNotificationsController < ApiController
   def notify
-    result = InfectionNotifications::User.new(user_params).perform
-    render json: {}, status: :ok
+    user = InfectionNotifications::User.new(user_params).perform
+    render json: user, status: :ok
   end
 
   private

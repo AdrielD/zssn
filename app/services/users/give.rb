@@ -8,5 +8,6 @@ class Users::Give
   def perform
     user = User.find(@id)
     user.receive_item(@item_id, @quantity)
+    user.inventory
   end
 end

@@ -10,13 +10,13 @@ class Api::UsersController < ApiController
   end
 
   def give
-    user_item = Users::Give.new(item_params).perform
-    render json: user_item, status: :ok
+    inventory = Users::Give.new(item_params).perform
+    render json: inventory, status: :ok
   end
 
   def take
-    user_item = Users::Take.new(item_params).perform
-    render json: user_item, status: :ok
+    inventory = Users::Take.new(item_params).perform
+    render json: inventory, status: :ok
   end
 
   def trade
@@ -40,6 +40,6 @@ class Api::UsersController < ApiController
   end
 
   def trade_params
-    params:permit(offers: [:user_id, item_list: [:id, quantity]])
+    params.permit(offers: [:user_id, item_list: [:id, quantity]])
   end
 end
