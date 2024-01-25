@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/health_check' => 'api#health_check'
+  get '/health-check' => 'api#health_check'
 
   namespace :api do
     post '/user' => 'users#create'
@@ -12,10 +12,10 @@ Rails.application.routes.draw do
     post '/users/trade' => 'user#trade'
 
     namespace :reports do
-      get '/infected_users' => 'reports#infected_users'
-      get '/healthy_users' => 'reports#healthy_users'
-      get '/average_item_per_user' => 'reports#average_item_per_user'
-      get '/points_lost_on_infection' => 'reports#points_lost_on_infection'
+      get '/infected-users' => '/api/reports#infected_users'
+      get '/healthy-users' => '/api/reports#healthy_users'
+      get '/average-item-per-user' => '/api/reports#average_item_per_user'
+      get '/points-lost-on-infection' => '/api/reports#points_lost_on_infection'
     end
   end
 end

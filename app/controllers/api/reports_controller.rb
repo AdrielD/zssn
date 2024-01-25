@@ -1,21 +1,21 @@
 class Api::ReportsController < ApiController
   def infected_users
-    result = Reports.infected_users
-    render json: { infected_users: result }, status: :ok
+    result = DataReports.infected_users
+    render json: result, status: :ok
   end
 
   def healthy_users
-    result = Reports.healthy_users
-    render json: { healthy_users: result }, status: :ok
+    result = DataReports.healthy_users
+    render json: result, status: :ok
   end
 
   def average_item_per_user
-    result = Reports.average_item_per_user
-    render json: { average_item_per_user: result }, status: :ok
+    result = DataReports.average_item_per_user
+    render json: result, status: :ok
   end
 
   def points_lost_on_infection
-    result = Reports.points_lost_on_infection
-    render json: { points_lost_on_infection: result }, status: :ok
+    result = DataReports.points_lost_on_infection
+    render json: result, status: :ok
   end
 end
