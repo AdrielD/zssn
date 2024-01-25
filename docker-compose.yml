@@ -1,7 +1,8 @@
 version: '3.4'
 services:
   api:
-    build: .
+    build:
+      context: .
     container_name: zssn_api
     ports:
       - 3000:3000
