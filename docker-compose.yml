@@ -1,11 +1,13 @@
 version: '3.4'
 services:
-  web:
+  api:
     image: adrield/zssn:latest
+    container_name: zssn_api
     ports:
       - 3000:3000
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/zssn
+      - DATABASE_URL=postgresql://zssn:zssn123@db:5432/zssn_development
+      - RAILS_ENV=production
     depends_on:
       - db
       # - redis
@@ -19,11 +21,12 @@ services:
 
   db:
     image: postgres:16
+    container_name: zssn_db
     ports:
       - 5432:5432
     volumes:
       - ./tmp/postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: zssn
+      POSTGRES_DB: zssn_development
       POSTGRES_USER: zssn
       POSTGRES_PASSWORD: zssn123
