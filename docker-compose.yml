@@ -1,0 +1,29 @@
+version: '3.4'
+services:
+  web:
+    image: adrield/zssn:latest
+    ports:
+      - 3000:3000
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/zssn
+    depends_on:
+      - db
+      # - redis
+
+  # redis:
+  #   image: "redis:7-alpine"
+  #   ports:
+  #     - 6379
+  #   volumes:
+  #     - ./tmp/redis_data:/var/lib/redis/data
+
+  db:
+    image: postgres:16
+    ports:
+      - 5432:5432
+    volumes:
+      - ./tmp/postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: zssn
+      POSTGRES_USER: zssn
+      POSTGRES_PASSWORD: zssn123
