@@ -9,6 +9,11 @@ class Api::UsersController < ApiController
     render json: user, status: :ok
   end
 
+  def inventory
+    inventory = User.find(params[:id]).inventory
+    render json: inventory, status: :ok
+  end
+
   def give
     inventory = Users::Give.new(item_params).perform
     render json: inventory, status: :ok

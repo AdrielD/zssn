@@ -56,8 +56,10 @@ For the sake of simplicity, the api is not versioned (since this is the end of t
 As a small project, Rails' MVC pattern is mostly sufficient, by I personally like to separate CRUD operations and other business
 rules into pure ruby classes in `app/services`. Other core classes were put into `app/lib`.
 
-I took the decision to record who were the users reporting their infected pals because. It's easier to check if each notification come from
+I took the decision to record who were the users reporting their infected pals. It's easier to check if each notification come from
 unique users, rather then one single person spamming the notification endpoint.
+
+To make things easier, I added an endpoint to list the user's inventory.
 
 
 ## Infra
@@ -79,12 +81,12 @@ server {
 }
 ```
 
-Note the domain is in HTTP, since Certbot doesn't work with `amazonaws.com` by policy
+Note the domain is in HTTP, since Certbot doesn't work with `amazonaws.com` by policy, I tried...
 
 (and it didn't make sense to buy a domain just to setup HTTPS for this code challenge)
 
 
-TODO:
+## TODO:
 - parametize exceptions
 - add i18n to exceptions
 - use google geolocal api to search for lat / lng from an address
