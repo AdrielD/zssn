@@ -3,18 +3,19 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  host: localhost
-  username: zssn
-  password: zssn123
+  host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
+  port: <%= ENV['POSTGRES_PORT'] || '5432' %>
+  username: <%= ENV['POSTGRES_USER'] || 'zssn' %>
+  password: <%= ENV['POSTGRES_PASSWORD'] || 'zssn123' %>
 
 development:
   <<: *default
-  database: zssn_development
+  database: <%= ENV['POSTGRES_DB'] || 'zssn_development' %>
 
 test:
   <<: *default
-  database: zssn_test
+  database: <%= ENV['POSTGRES_DB'] || 'zssn_test' %>
 
 production:
   <<: *default
-  database: zssn
+  database: <%= ENV['POSTGRES_DB'] || 'zssn' %>

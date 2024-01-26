@@ -7,8 +7,10 @@ services:
     ports:
       - 3000:3000
     environment:
-      - DATABASE_URL=postgresql://zssn:zssn123@db:5432/zssn_development
-      - RAILS_ENV=production
+      POSTGRES_HOST: db
+      POSTGRES_DB: zssn
+      POSTGRES_USER: zssn
+      POSTGRES_PASSWORD: zssn123
     depends_on:
       - db
       # - redis
@@ -23,11 +25,16 @@ services:
   db:
     image: postgres:16
     container_name: zssn_db
+    restart: always
     ports:
       - 5432:5432
     volumes:
-      - ./tmp/postgres_data:/var/lib/postgresql/data
+      - zssn_volume:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: zssn_development
+      POSTGRES_DB: zssn
       POSTGRES_USER: zssn
       POSTGRES_PASSWORD: zssn123
+  
+volumes:
+  zssn_volume:
+    name: zssn_volume
