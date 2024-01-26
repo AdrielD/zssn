@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     post '/infection_notification/user' => 'infection_notifications#notify'
 
-    post '/users/trade' => 'user#trade'
+    post '/users/trade' => 'users#trade'
 
     namespace :reports do
       get '/infected-users' => '/api/reports#infected_users'

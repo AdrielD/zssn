@@ -26,7 +26,7 @@ class Api::UsersController < ApiController
 
   def trade
     offer_a, offer_b = trade_params[:offers]
-    result = User::Trade.new(offer_a, offer_b).perform
+    result = Users::Trade.new(offer_a, offer_b).perform
     render json: {}, status: :ok
   end
 
@@ -45,6 +45,6 @@ class Api::UsersController < ApiController
   end
 
   def trade_params
-    params.permit(offers: [:user_id, item_list: [:id, quantity]])
+    params.permit(offers: [:user_id, item_list: [:id, :quantity]])
   end
 end
