@@ -42,7 +42,7 @@ class Api::UsersController < ApiController
   end
 
   def location_params
-    params.permit(:id, :lat, :lng)
+    params.permit(:id, :lat, :lng, :address)
   end
 
   def item_params

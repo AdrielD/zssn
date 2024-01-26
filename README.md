@@ -61,6 +61,10 @@ unique users, rather then one single person spamming the notification endpoint.
 
 To make things easier, I added an endpoint to show an user and another to list their inventory.
 
+When I worked at Media Response Group, I once made a landing page for a skincare company using the geolocation API in order to fetch the nearest clinics
+and email them to the clients. So I remembered this API existed and added to the endpoint that updates user location. So the endpoint
+will now accept either a `lat` and `lng` pair with some coordinates OR a `address` param with a real address like `Av, Paulista, 1578 - Bela Vista, São Paulo`.
+
 
 ## Infra
 
@@ -89,7 +93,6 @@ Note the domain is in HTTP, since Certbot doesn't work with `amazonaws.com` by p
 ## TODO:
 - parametize exceptions
 - add i18n to exceptions
-- use google geolocal api to search for lat / lng from an address
 - Trade Manager:
   - let trade happen in a multi-staged transaction (add, remove itens, compare, etc, before closing the deal)
   - add it's own controller
