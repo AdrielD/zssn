@@ -59,7 +59,7 @@ rules into pure ruby classes in `app/services`. Other core classes were put into
 I took the decision to record who were the users reporting their infected pals. It's easier to check if each notification come from
 unique users, rather then one single person spamming the notification endpoint.
 
-To make things easier, I added an endpoint to list the user's inventory.
+To make things easier, I added an endpoint to show an user and another to list their inventory.
 
 
 ## Infra

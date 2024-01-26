@@ -4,6 +4,11 @@ class Api::UsersController < ApiController
     render json: user, status: :created
   end
 
+  def show
+    user = User.find(params[:id])
+    render json: user, status: :ok
+  end
+
   def locate
     user = Users::Locate.new(location_params).perform
     render json: user, status: :ok
