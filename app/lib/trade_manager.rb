@@ -37,19 +37,8 @@ class TradeManager
 
   private
 
-  # TODO let trade happen in a multi-staged transaction (add, remove itens, compare, etc, before closing the deal)
-
-  # TODO add it's own controller
-
-  # TODO have temporary persistency with redis
-
   def validate
-    # TODO validate user, items, availability
     raise UserExceptions::InfectedCantTrade if (user_a.infected || user_b.infected)
-  end
-
-  def normalize
-    # TODO in case users are trying to trade the same items
   end
 
   def sum_points(list)
